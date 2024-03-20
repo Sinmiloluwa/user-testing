@@ -21,7 +21,7 @@
         - name: Install Project Dependencies
           run: composer install --no-interaction --prefer-dist --optimize-autoloader
         - name: Deploy Environment
-          run: vapor deploy
+          run: vapor deploy production --commit="${{github.sha}}" --message="${{ github.event.head_commit.message }}
           env:
             APP_NAME: ${{ secrets.APP_NAME }}
             APP_ENV: ${{ secrets.APP_PRODUCTION_ENV }}
