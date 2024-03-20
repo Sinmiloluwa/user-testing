@@ -11,6 +11,7 @@
         "laravel/socialite": "^5.12",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.5",
+        "laravel/vapor-cli": "^1.64",
         "laravel/vapor-core": "^2.37"
     },
     "require-dev": {
