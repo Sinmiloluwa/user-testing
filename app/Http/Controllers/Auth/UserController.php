@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Traits\ResponseTrait;
 use App\Models\User;
 use App\Models\UserType;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -31,6 +32,9 @@ class UserController extends Controller
         ]);
     }
 
+    /**
+     * @return JsonResponse
+     */
     public function userTypes()
     {
         $userTypes = UserTypeEnum::cases();
