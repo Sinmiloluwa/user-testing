@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->foreignIdFor(\App\Models\UserType::class, 'user_type_id')->nullable();
             $table->string('password');
             $table->string('user_type');
             $table->rememberToken();

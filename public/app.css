@@ -1,0 +1,38 @@
+body {
+    font-family: "Nunito";
+}
+
+header {
+    padding: 0px, 64px, 0px, 64px;
+}
+
+hr {
+    border-top: 1px solid black;
+}
+
+.content-text {
+    font-size: 56x;
+}
+
+.banner h3 {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 18px;
+    color: gray;
+}
+
+.footer-intro {
+    font-family: "Roboto";
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modalOverlay {
+    /* Ensure the overlay covers the entire screen */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
