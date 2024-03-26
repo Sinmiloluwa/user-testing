@@ -2,7 +2,7 @@ id: 59225
 name: hakim
 environments:
     production:
-        database: vapor
+        database: hakim
         storage: hakimbuckets
         memory: 1024
         cli-memory: 512
