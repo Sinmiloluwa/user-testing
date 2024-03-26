@@ -39,9 +39,9 @@
                 <img src="{{ Storage::disk('s3')->temporaryUrl('Vector.png',now()->addMinutes(5)) }}" alt="Brand 1" class="w-15 h-auto mx-4 my-2">
                 <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 2.png',now()->addMinutes(5)) }}" alt="Brand 2" class="w-15 h-auto mx-4 my-2">
                 <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 3.png', now()->addMinutes(5)) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
-                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 4.png', now()->addMinutes(5) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
-                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 5.png', now()->addMinutes(5) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
-                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector.jpg', now()->addMinutes(5) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 4.png', now()->addMinutes(5)) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 5.png', now()->addMinutes(5)) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector.jpg', now()->addMinutes(5)) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
                 <!-- Add more images as needed -->
             </div>
         </div>
