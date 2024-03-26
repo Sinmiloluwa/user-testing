@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="{{ asset('img.png') }}" alt="svg-hero">
+                    <img src="{{ Storage::disk('s3')->temporaryUrl('img.png',now()->addMinutes(5)) }}" alt="svg-hero">
                 </div>
             </div>
 
@@ -36,12 +36,12 @@
                 <h3>Trusted by 5,000+ Companies Worldwide</h3>
             </div>
             <div class="flex flex-wrap justify-between items-center">
-                <img src="Vector.png" alt="Brand 1" class="w-15 h-auto mx-4 my-2">
-                <img src="Vector 2.png" alt="Brand 2" class="w-15 h-auto mx-4 my-2">
-                <img src="Vector 3.png" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
-                <img src="Vector 4.png" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
-                <img src="Vector 5.png" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
-                <img src="Vector.jpg" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector.png',now()->addMinutes(5)) }}" alt="Brand 1" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 2.png',now()->addMinutes(5)) }}" alt="Brand 2" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 3.png', now()->addMinutes(5)) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 4.png', now()->addMinutes(5) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 5.png', now()->addMinutes(5) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector.jpg', now()->addMinutes(5) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
                 <!-- Add more images as needed -->
             </div>
         </div>
@@ -66,7 +66,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="sm:text-center lg:text-left flex justify-between items-center">
                 <div class="justify-start text-left w-960">
-                    <img src="{{ asset('User testing 1.png') }}" alt="graph">
+                    <img src="{{ Storage::disk('s3')->temporaryUrl('User testing 1.png', now()->addMinutes(5)) }}" alt="graph">
                 </div>
                 <div class="w-2/5">
                     <ul class="list-none">
@@ -265,7 +265,7 @@
                     </div>
                     <h3 class="py-8 font-light text-sm">By subscribing you agree to with our Privacy Policy</h3>
                 </div>
-                
+
             </div>
         <hr>
     </div>
@@ -292,27 +292,27 @@
         // Get the modal
         const modal = document.getElementById('myModal');
         const modalOverlay = document.getElementById('modalOverlay');
-      
+
         // Get the button that opens the modal
         const btn = document.getElementById('openModal');
-      
+
         // Get the <span> element that closes the modal
         const span = document.getElementById('closeModal');
-      
+
         // When the user clicks on the button, open the modal
         btn.onclick = function() {
           modal.classList.remove('hidden');
           modal.classList.add('fixed');
           modalOverlay.classList.remove('hidden');
         }
-      
+
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
           modal.classList.add('hidden');
           modal.classList.remove('fixed');
           modalOverlay.classList.add('hidden');
         }
-      
+
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
           if (event.target == modal) {
@@ -322,5 +322,5 @@
           }
         }
       </script>
-      
+
 @endsection
