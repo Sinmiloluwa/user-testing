@@ -3,6 +3,15 @@
     <x-header />
    <div class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+                    <p class="font-bold">Oops</p>
+                    <p>{{$error}}</p>
+                </div>
+                
+                @endforeach
+            @endif
             <div class="sm:text-center lg:text-left flex justify-between items-center">
                 <div class="justify-start text-left w-80">
                     <h1 class="text-4xl font-bold text-black mb-4">Unleash the power of real users. See your website
@@ -10,21 +19,16 @@
                     <p class="text-sm text-black-400 mb-8">Emphasizes the benefits of user testing, including
                         understanding user behavior, discovering usability issues, and increasing conversions</p>
                     <div class="actions">
-                        <p>action</p>
+                        <button id="openModal" class="bg-black hover:bg-opacity-75  text-white py-2 px-4 rounded-md ml-2">Get Started</button>
                     </div>
                 </div>
                 <div>
-                    <img src="{{ Storage::disk('s3')->temporaryUrl('img.png',now()->addMinutes(5)) }}" alt="svg-hero">
+                    <img src="{{ asset('img.png') }}" alt="svg-hero">
                 </div>
             </div>
 
             <div class="flex justify-center lg:justify-start">
-                <a href="#"
-                    class="bg-white text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 transition duration-300">Get
-                    Started</a>
-                <a href="#"
-                    class="ml-4 bg-transparent border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 transition duration-300">Learn
-                    More</a>
+                
             </div>
         </div>
     </div>
@@ -36,12 +40,12 @@
                 <h3>Trusted by 5,000+ Companies Worldwide</h3>
             </div>
             <div class="flex flex-wrap justify-between items-center">
-                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector.png',now()->addMinutes(5)) }}" alt="Brand 1" class="w-15 h-auto mx-4 my-2">
-                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 2.png',now()->addMinutes(5)) }}" alt="Brand 2" class="w-15 h-auto mx-4 my-2">
-                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 3.png', now()->addMinutes(5)) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
-                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 4.png', now()->addMinutes(5)) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
-                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector 5.png', now()->addMinutes(5)) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
-                <img src="{{ Storage::disk('s3')->temporaryUrl('Vector.jpg', now()->addMinutes(5)) }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ asset('Vector.png') }}" alt="Brand 1" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ asset('Vector 2.png') }}" alt="Brand 2" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ asset('Vector 3.png') }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ asset('Vector 4.png') }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ asset('Vector 5.png') }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
+                <img src="{{ asset('Vector.jpg') }}" alt="Brand 3" class="w-15 h-auto mx-4 my-2">
                 <!-- Add more images as needed -->
             </div>
         </div>
@@ -66,7 +70,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="sm:text-center lg:text-left flex justify-between items-center">
                 <div class="justify-start text-left w-960">
-                    <img src="{{ Storage::disk('s3')->temporaryUrl('User testing 1.png', now()->addMinutes(5)) }}" alt="graph">
+                    <img src="{{ asset('User testing 1.png') }}" alt="graph">
                 </div>
                 <div class="w-2/5">
                     <ul class="list-none">
@@ -171,8 +175,7 @@
                             <!-- Add more list items as needed -->
                         </ul>
                         <div class="py-8">
-                            <button class="bg-black hover:bg-opacity-75 text-white py-2 px-4 rounded-md">Start Testing
-                                Now</button>
+                            <button id="openModal" class="bg-black hover:bg-opacity-75  text-white py-2 px-4 rounded-md ml-2">Start Testing Now</button>
                         </div>
                     </div>
                 </div>
@@ -240,7 +243,7 @@
             <div class="flex flex-col items-center justify-center text-center">
                 <h3 class="text-lg text-white mb-4 md:text-3xl lg:text-3xl footer-intro w-4/5 font-bold">Transform your
                     productivity in minutes. Start your free trial!</h3>
-                <button class="bg-white hover:bg-opacity-75 text-black py-2 mt-8 px-4 rounded-md">Start Testing
+                <button id="openModal" class="bg-white hover:bg-opacity-75 text-black py-2 mt-8 px-4 rounded-md">Start Testing
                     Now</button>
             </div>
         </div>
@@ -287,6 +290,7 @@
     </div>
     <x-forms.login :userTypes="$userTypes"/>
     <div id="modalOverlay" class="hidden fixed inset-0 bg-gray-900 opacity-50 z-40"></div>
+    <x-forms.register :userTypes="$userTypes"/>
 
     <script>
         // Get the modal
@@ -322,5 +326,40 @@
           }
         }
       </script>
+
+<script>
+    // Get the modal
+    const modals = document.getElementById('myModals');
+    const modalOverlays = document.getElementById('modalOverlays');
+
+    // Get the button that opens the modal
+    const btns = document.getElementById('openModals');
+
+    // Get the <span> element that closes the modal
+    const spans = document.getElementById('closeModals');
+
+    // When the user clicks on the button, open the modal
+    btns.onclick = function() {
+      modals.classList.remove('hidden');
+      modals.classList.add('fixed');
+      modalOverlay.classList.remove('hidden');
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    spans.onclick = function() {
+      modals.classList.add('hidden');
+      modals.classList.remove('fixed');
+      modalOverlay.classList.add('hidden');
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modals) {
+        modals.classList.add('hidden');
+        modals.classList.remove('fixed');
+        modalOverlay.classList.add('hidden');
+      }
+    }
+  </script>
 
 @endsection

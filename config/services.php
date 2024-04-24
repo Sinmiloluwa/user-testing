@@ -31,4 +31,17 @@ return [
         ],
     ],
 
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT'),
+        'key_id' => env('GOOGLE_ID')
+    ],
+
+    'figma' => [    
+        'client_id' => env('FIGMA_CLIENT_ID'),  
+        'client_secret' => env('FIGMA_CLIENT_SECRET'),  
+        'redirect' => env('FIGMA_REDIRECT_URI') 
+      ],
+
 ];
