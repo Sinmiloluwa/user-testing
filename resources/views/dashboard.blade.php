@@ -56,9 +56,6 @@
                   Project Name
               </th>
               <th scope="col" class="px-6 py-3">
-                  Project link
-              </th>
-              <th scope="col" class="px-6 py-3">
                   Expires in 
               </th>
               <th scope="col" class="px-6 py-3">
@@ -83,9 +80,6 @@
             </td>
             <td class="px-6 py-4">
               {{$project->project_name}}
-            </td>
-            <td class="px-6 py-4">
-                <a class="text-blue" href="{{$project->link}}">{{$project->link}}</a>
             </td>
             <td class="px-6 py-4">
               @php

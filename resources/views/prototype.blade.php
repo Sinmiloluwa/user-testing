@@ -63,15 +63,40 @@
                 </div>
                 @endforeach
             </div>
-            <div class="pb-4">
-                <label for="Question" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rating</label>
-                <input type="number" id="rating"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Rating" name="rating" required 
-                    max="5" />
-
+        
+            <button type="button" style="background-color: black" class="hover:bg-opacity-75 text-white py-2 px-4 rounded-md ml-2" id="rateId">Continue</button>
+            <div id="rateModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+              <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                  <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+            
+                <!-- Modal Content -->
+                <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                  <button id="closeRateModal" class="close absolute top-0 right-0 p-2">
+                    <svg class="h-6 w-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                  <p>Rate this design</p>
+                  <div class="mx-auto flex items-center justify-center h-12 w-12">
+            
+                    <div class="rating text-center">
+                      <input type="radio" name="rating" class="mask mask-star" value="1"/>
+                      <input type="radio" name="rating" class="mask mask-star" value="2" checked/>
+                      <input type="radio" name="rating" class="mask mask-star" value="3"/>
+                      <input type="radio" name="rating" class="mask mask-star" value="4"/>
+                      <input type="radio" name="rating" class="mask mask-star" value="5"/>
+                    </div>
+                  </div>
+                  <div class="mt-5 sm:mt-6">
+                    <button type="submit" id="closeRateModal" style="background-color: black" class="w-full bg-black inline-flex justify-center hover:bg-opacity-75 text-white py-2 px-4 rounded-md ml-2">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <button type="submit" style="background-color: black" class="hover:bg-opacity-75 text-white py-2 px-4 rounded-md ml-2" id="">Submit</button>
         </form>
         </div>
     </main>
@@ -88,6 +113,11 @@
       <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
         <div>
           <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+            <button id="closeModal" class="close absolute top-0 right-0 p-2">
+              <svg class="h-6 w-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
             <!-- Heroicon name: outline/check -->
             <p class="font-bold font-xl">Instructions</p>
             <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -107,7 +137,6 @@
   </div>
   
   <script>
-    localStorage.clear();
       // Check if modal has been shown before
       const modalShown = localStorage.getItem('modalShown');
       console.log(modalShown);
@@ -122,6 +151,36 @@
               localStorage.setItem('modalShown', true);
               document.getElementById('myModal').classList.add('hidden');
           });
+      }
+
+      // Get the modal
+    var modal = document.getElementById("rateModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("rateId");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementById("closeRateModal");
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function() {
+    console.log('event');
+    modal.classList.remove('hidden');
+  };
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+        modal.classList.add('hidden');
+        console.log(modal);
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('fixed');
+          modalOverlay.classList.add('hidden');
+        }
       }
   </script>
   

@@ -5,11 +5,10 @@
    @include('layouts.dashboard-nav')
 
    <div class="flex flex-col flex-1 pb-4">
-    <div class="flex flex-col flex-1">
         @include('layouts.dashboard-header')
         @if ($errors->any())
         @foreach ($errors->all() as $error)
-        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 ml-64" role="alert">
             <p class="font-bold">Oops</p>
             <p>{{$error}}</p>
         </div>
