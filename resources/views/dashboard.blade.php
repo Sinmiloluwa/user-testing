@@ -68,7 +68,7 @@
       </thead>
       <tbody>
           @php
-            $projects = App\Models\Project::paginate(10);
+            $projects = App\Models\Project:: where('user_id', Auth::id())->paginate(10);
           @endphp
           @foreach($projects as $project)
           <tr class="bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">

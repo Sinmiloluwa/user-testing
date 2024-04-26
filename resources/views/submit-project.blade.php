@@ -148,8 +148,7 @@
     var hasFigmaDomain = linkValue.includes("figma.com");
     
     // Check if the URL contains "starting-point-node-id="
-    var hasStartingPointNodeId = linkValue.includes("starting-point-node-id=");
-    
+    var hasStartingPointNodeId = linkValue.includes("proto");
     // If any of the checks fail, prevent form submission
     if (!hasHttps || !hasFigmaDomain || !hasStartingPointNodeId) {
         event.preventDefault();
